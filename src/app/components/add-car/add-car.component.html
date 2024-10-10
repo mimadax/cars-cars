@@ -1,19 +1,35 @@
-<div class="container mt-4">
-    <h2>Ajouter une nouvelle voiture</h2>
-  
-    <form (ngSubmit)="onAddCar()">  <!-- Vérifier que (ngSubmit)="onAddCar()" est là -->
-      <div class="form-group">
-        <label for="brand">Marque</label>
-        <input type="text" [(ngModel)]="newCar.brand" name="brand" class="form-control" required>
-      </div>
-  
-      <div class="form-group">
-        <label for="model">Modèle</label>
-        <input type="text" [(ngModel)]="newCar.model" name="model" class="form-control" required>
-      </div>
-  
-      <button type="submit" class="btn btn-success mt-2">Ajouter</button>
-    </form>
+<div class="container mt-5">
+  <!-- Titre de la page d'ajout avec le même style moderne -->
+  <h2 class="text-center mb-4" style="font-family: 'Poppins', sans-serif; font-weight: 600; background: linear-gradient(to right, #7f00ff, #e100ff); -webkit-background-clip: text; color: transparent; font-size: 2.5rem;">
+    Ajouter une nouvelle voiture
+  </h2>
 
-    <button (click)="onAddCar()" class="btn btn-info mt-4">Test Clic Ajouter</button>
+  <!-- Bouton Retour stylisé -->
+  <div class="text-center mb-3">
+    <button class="btn btn-outline-dark btn-modern" (click)="goBack()">Retour</button>
+  </div>
+
+  <!-- Formulaire moderne pour l'ajout d'une voiture -->
+  <div class="card mx-auto" style="max-width: 600px; background-color: #f5f5f5; border: none; box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1); border-radius: 15px;">
+    <div class="card-body">
+      <form (ngSubmit)="onAddCar()">
+        <!-- Champ pour la marque -->
+        <div class="form-group mb-3">
+          <label for="brand" class="form-label" style="color: #7f00ff;">Marque</label>
+          <input type="text" id="brand" [(ngModel)]="newCar.brand" name="brand" class="form-control" 
+                 style="border-radius: 25px; padding: 15px; background-color: #fafafa; border: none; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);">
+        </div>
+
+        <!-- Champ pour le modèle -->
+        <div class="form-group mb-4">
+          <label for="model" class="form-label" style="color: #7f00ff;">Modèle</label>
+          <input type="text" id="model" [(ngModel)]="newCar.model" name="model" class="form-control" 
+                 style="border-radius: 25px; padding: 15px; background-color: #fafafa; border: none; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);">
+        </div>
+
+        <!-- Bouton Ajouter stylisé -->
+        <button type="submit" class="btn btn-primary btn-modern" style="width: 100%;">Ajouter</button>
+      </form>
+    </div>
+  </div>
 </div>

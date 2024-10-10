@@ -1,0 +1,34 @@
+// Styles modernes pour le formulaire d'ajout
+body {
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .card {
+    border-radius: 15px;
+  }
+  
+  .btn-modern {
+    background: linear-gradient(135deg, #7f00ff 0%, #e100ff 100%);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    font-size: 1rem;
+  }
+  
+  .btn-modern:hover {
+    background: linear-gradient(135deg, #e100ff 0%, #7f00ff 100%);
+  }
+  
+  .btn-outline-dark {
+    border: 2px solid #7f00ff;
+    color: #7f00ff;
+    padding: 10px 20px;
+    border-radius: 25px;
+  }
+  
+  .btn-outline-dark:hover {
+    background-color: #7f00ff;
+    color: white;
+  }

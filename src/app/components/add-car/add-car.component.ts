@@ -24,5 +24,9 @@ export class AddCarComponent {
     alert('Nouvelle voiture ajoutée : ' + this.newCar.brand + ' ' + this.newCar.model);
     this.router.navigate(['/']);  // Retour à la page principale
   }
+
+  goBack() {
+    this.router.navigate(['/']);  // Retourne à la page d'accueil
+  }
 }
 

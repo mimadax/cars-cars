@@ -1,25 +1,26 @@
-<div class="container mt-4">
-  <!-- Header -->
-  <h2 class="text-center mb-4 mt-4">Liste des Voitures</h2>
+<div class="container mt-5">
+  <!-- Header modernisé avec une typographie élégante et un léger dégradé -->
+  <h2 class="text-center mb-4" style="font-family: 'Poppins', sans-serif; font-weight: 600; background: linear-gradient(to right, #7f00ff, #e100ff); -webkit-background-clip: text; color: transparent; font-size: 2.5rem;">
+    Liste des Voitures
+  </h2>
 
-  <!-- Conteneur pour la barre de recherche et le bouton Ajouter -->
-  <div [ngClass]="{'col-md-8': selectedCar, 'col-md-12': !selectedCar}" class="mb-4 mt-4">
+  <!-- Barre de recherche et bouton Ajouter dans une disposition moderne -->
+  <div [ngClass]="{'col-md-8': selectedCar, 'col-md-12': !selectedCar}" class="mb-4">
     <div class="d-flex">
-      <!-- Barre de recherche -->
-      <input type="text" [(ngModel)]="searchTerm" placeholder="Rechercher une voiture..." class="form-control me-2">
+      <!-- Barre de recherche modernisée -->
+      <input type="text" [(ngModel)]="searchTerm" placeholder="Rechercher une voiture..." class="form-control me-2 search-bar" 
+             style="background-color: #f5f5f5; border: none; padding: 15px; border-radius: 25px; box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);">
       
-      <!-- Bouton Ajouter -->
-      <button class="btn btn-primary" (click)="goToAddPage()">Ajouter</button>
+      <!-- Bouton Ajouter modernisé avec un dégradé -->
+      <button class="btn btn-primary btn-modern" (click)="goToAddPage()">Ajouter</button>
     </div>
   </div>
 
-  <!-- Conteneur pour le tableau et la card -->
+  <!-- Tableau des voitures -->
   <div class="row">
-    <!-- Tableau : prend 2/3 si une voiture est sélectionnée, sinon 100% -->
     <div [ngClass]="{'col-md-8': selectedCar, 'col-md-12': !selectedCar}">
-      <!-- Tableau des voitures -->
-      <table class="table table-striped">
-        <thead>
+      <table class="table table-hover" style="border-radius: 15px; overflow: hidden;">
+        <thead style="background-color: #7f00ff; color: white;">
           <tr>
             <th>#</th>
             <th>Marque</th>
@@ -27,31 +28,29 @@
             <th>Action</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody style="background-color: #fafafa;">
           <tr *ngFor="let car of filteredCars">
             <td>{{ car.id }}</td>
             <td>{{ car.brand }}</td>
             <td>{{ car.model }}</td>
             <td>
-              <!-- Bouton Détails -->
-              <button class="btn btn-info" (click)="onClickChangeSelectedCar(car.id)">Détails</button>
-
-              <!-- Bouton Supprimer -->
-              <button class="btn btn-danger" (click)="onDeleteCar(car.id)">Supprimer</button>
+              <!-- Boutons modernisés -->
+              <button class="btn btn-outline-dark me-2" (click)="onClickChangeSelectedCar(car.id)">Détails</button>
+              <button class="btn btn-outline-danger" (click)="onDeleteCar(car.id)">Supprimer</button>
             </td>
           </tr>
         </tbody>
       </table>
     </div>
 
-    <!-- Card des détails visible uniquement si une voiture est sélectionnée -->
+    <!-- Card des détails -->
     <div *ngIf="selectedCar" class="col-md-4">
-      <div class="card mt-4">
+      <div class="card mt-4" style="background-color: #f5f5f5; border: none; box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1); border-radius: 15px;">
         <div class="card-body">
-          <h5 class="card-title">Détails de la voiture</h5>
+          <h5 class="card-title" style="color: #7f00ff;">Détails de la voiture</h5>
           <p><strong>Marque :</strong> {{ selectedCar.brand }}</p>
           <p><strong>Modèle :</strong> {{ selectedCar.model }}</p>
-          <img src="https://picsum.photos/200" alt="Image aléatoire">
+          <img [src]="selectedCar.picture" alt="Image de la voiture" class="img-fluid" style="border-radius: 15px;">
         </div>
       </div>
     </div>
