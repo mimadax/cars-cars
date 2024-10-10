@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Car, CarService } from '../../services/car.service';
 
 @Component({
   selector: 'app-add-car',
@@ -13,16 +14,15 @@ import { Router } from '@angular/router';
 })
 
 export class AddCarComponent {
-  newCar = { id: 0, brand: '', model: '' };  // Objet de voiture
+  newCar: Car = { id: 0, brand: '', model: '' };  // Nouvelle voiture
 
-  constructor(private router: Router) {
-    console.log('AddCarComponent initialisé');  // Vérifier si le composant est chargé
-  }
+  constructor(private carService: CarService, private router: Router) {}
 
+  // Méthode pour ajouter une voiture
   onAddCar() {
-    console.log('Bouton ajouter cliqué !');  // Vérifier si l'action est déclenchée
+    this.carService.addCar(this.newCar);  // Ajoute la voiture via le service
     alert('Nouvelle voiture ajoutée : ' + this.newCar.brand + ' ' + this.newCar.model);
-    this.router.navigate(['/']);  // Redirection vers la page principale
+    this.router.navigate(['/']);  // Retour à la page principale
   }
 }
 
