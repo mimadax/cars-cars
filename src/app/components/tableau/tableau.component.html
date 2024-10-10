@@ -1,0 +1,44 @@
+<div class="container mt-4">
+    <h2 class="text-center">Liste des Voitures</h2>
+  
+    <!-- Zone de recherche -->
+    <input type="text" [(ngModel)]="searchTerm" placeholder="Rechercher une voiture..." class="form-control mb-4">
+  
+    <!-- Bouton "Ajouter" pour aller à la page d'ajout -->
+    <button class="btn btn-primary mb-4" (click)="goToAddPage()">Ajouter</button>
+  
+    <!-- Tableau des voitures -->
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Marque</th>
+          <th>Modèle</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let car of filteredCars">
+          <td>{{ car.id }}</td>
+          <td>{{ car.brand }}</td>
+          <td>{{ car.model }}</td>
+          <td>
+            <!-- Bouton pour afficher les détails -->
+            <button class="btn btn-info" (click)="onClickChangeSelectedCar(car.id)">Détails</button>
+  
+            <!-- Bouton pour supprimer la voiture -->
+            <button class="btn btn-danger" (click)="onDeleteCar(car.id)">Supprimer</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <!-- Affichage de la card avec les détails -->
+    <div *ngIf="selectedCar" class="card mt-4">
+        <div class="card-body">
+          <h5 class="card-title">Détails de la voiture</h5>
+          <p><strong>Marque :</strong> {{ selectedCar?.brand }}</p> <!-- Utilisation du ? -->
+          <p><strong>Modèle :</strong> {{ selectedCar?.model }}</p> <!-- Utilisation du ? -->
+          <img src="https://picsum.photos/200" alt="Image random">
+        </div>
+      </div>
